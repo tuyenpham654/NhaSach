@@ -1,0 +1,43 @@
+﻿@model IEnumerable<NhaSach.Models.HOADON>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div>
+    <form action="~/admin/HoaDon/Index" method="post">
+        <div>
+            <a class="btn btn-primary" href="~/admin/HoaDon/Create">Thêm Mới</a>
+        </div>
+    </form>
+    <div>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <td>Mã Hóa Đơn</td>
+                <td>Ngày Lập Hóa Đơn</td>
+                <td>Tổng Giá trị</td>
+                <td>MaKH</td>
+                <td>Sửa</td>
+                <td>Xóa</td>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MaHD</td>
+                        <td>@item.NgayLap</td>
+                        <td>@item.TongGT</td>
+                        <td>@item.MaKH</td>
+                        <td><a href="~/admin/HoaDon/Edit/@item.MaHD">Sửa</a></td>
+                        <td><a href="~/admin/HoaDon/Delete/@item.MaHD">Xóa</a></td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<NhaSach.Models.SANPHAM>
+@{
+    ViewBag.Title = "Sản Phẩm";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div>
+    <form action="~/admin/SanPham/Index" method="post">
+        
+        <div>
+            <a class="btn btn-primary" href="~/admin/SanPham/Create">Thêm Mới</a>
+        </div>
+    </form>
+    <div>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <td>Mã sản phẩm</td>
+                <td>Tên sản phẩm</td>
+                <td>Loại</td>
+                <td>Năm Sản Xuất</td>
+                <td>Nhà Cung Cấp</td>
+                <td>Giá</td>
+                <td>Hình Sản Phẩm</td>
+                <td>Sửa</td>
+                <td>Xóa</td>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.MaSP</td>
+                    <td>@item.TenSP</td>
+                    <td>@item.LOAISANPHAM.TenLoai</td>
+                    <td>@item.NamSX</td>
+                    <td>@item.NHACUNGCAP.TenNCC</td>
+                    <td>@item.Gia</td>
+                    <td><img style="width:50px; height:50px" src="~/Upload/SanPham/@item.HinhSP"/></td>
+                    <td><a href="~/admin/SanPham/Edit/@item.MaSP">Sửa</a></td>
+                    <td><a href="~/admin/SanPham/Delete/@item.MaSP">Xóa</a></td>
+                </tr>
+                }
+
+            </tbody>
+
+        </table>
+    </div>
+    
+</div>
+
+

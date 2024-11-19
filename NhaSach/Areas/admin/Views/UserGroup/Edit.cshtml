@@ -1,0 +1,31 @@
+﻿@model NhaSach.Models.USERGROUP
+@{
+    ViewBag.Title = "Nhóm Account";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<form action="~/admin/UserGroup/Edit" method="post">
+    <div class="form-group">
+
+        <input type="hidden" value="@Model.ID" class="form-control" id="ID" name="ID" />
+
+    </div>
+
+    <div class="form-group">
+        <label for="Name">Tên Group</label>
+        <input type="text" value="@Model.Name" class="form-control" id="Name" name="Name" />
+
+    </div>
+    
+
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" value="Lưu">Lưu</button>
+        <span class="text-danger">@ViewBag.StatusMessage</span>
+
+    </div>
+
+</form>

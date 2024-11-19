@@ -1,0 +1,47 @@
+﻿@model IEnumerable<NhaSach.Models.TINTUC>
+@{
+    ViewBag.Title = "Tin Tức";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+  
+
+<div>
+    <form action="~/admin/TinTuc/Index" method="post">
+        <div>
+            <a class="btn btn-primary" href="~/admin/TinTuc/Create">Thêm Mới</a>
+        </div>
+    </form>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Tên Tin Tức</td>
+                    <td>Loại</td>
+                    <td>Nội Dung</td>
+                    <td>Sửa</td>
+                    <td>Xóa</td>
+                </tr>
+                
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.TenTinTuc</td>
+                    <td>@item.LoaiTinTuc</td>
+                    <td>@item.NoiDung</td>
+                    <td><img style="width:50px; height:50px" src="~/Upload/TinTuc/@item.Hinh" /></td>
+                    <td><a href="~/admin/TinTuc/Edit/@item.ID">Sửa</a></td>
+                    <td><a href="~/admin/TinTuc/Delete/@item.ID">Xóa</a></td>
+                </tr>
+                }
+
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

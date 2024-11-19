@@ -1,0 +1,50 @@
+﻿@model IEnumerable<NhaSach.Models.USERSS>
+@{
+    ViewBag.Title = "Account";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div>
+    <form action="~/admin/User/Index" method="post">
+        <div>
+            <a class="btn btn-primary" href="~/admin/User/Create">Thêm Mới</a>
+        </div>
+    </form>
+    <div>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <td>ID tài khoản</td>
+                    <td>Username</td>
+                    <td>Password</td>
+                    <td>Loại Tài Khoản</td>
+                    <td>Tên Người dùng</td>
+                    <td>Hình ảnh</td>   
+                    <td>Sửa</td>
+                    <td>Xóa</td>
+                </tr>
+                
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.ID</td>
+                        <td>@item.UserName</td>
+                        <td>@item.Password</td>
+                        <td>@item.USERGROUP.Name</td>
+                        <td>@item.Name</td>
+                        <td><img style="width:50px; height:50px"  src="~/Upload/User/@item.Photo"/></td>
+                        <td><a href="~/admin/User/Edit/@item.ID">Sửa</a></td>
+                        <td><a href="~/admin/User/Delete/@item.ID">Xóa</a></td>
+                    </tr>
+                    }
+
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,52 @@
+﻿@model NhaSach.Models.SANPHAM
+@{
+    ViewBag.Title = "Sản Phẩm";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sửa Sản Phẩm</h2>
+<form action="~/admin/SanPham/Edit" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+
+        <input type="hidden" value="@Model.MaSP" class="form-control" id="MaSP" name="MaSP" />
+
+    </div>
+
+    <div class="form-group">
+        <label for="TenSP">Tên Sản Phẩm</label>
+        <input type="text" value="@Model.TenSP" class="form-control" id="TenSP" name="TenSP" />
+
+    </div>
+    <div class="form-group">
+        <label for="NamSX">Năm sản xuất</label>
+        <input type="text" value="@Model.NamSX" class="form-control" id="NamSX" name="NamSX" />
+
+    </div>
+    <div class="form-group">
+        <label for="TheLoai">Loại</label>
+        @Html.DropDownList("TheLoai", null, new { @class = " form-control" })
+
+    </div>
+    <div class="form-group">
+        <label for="NCC">Nhà Cung Cấp</label>
+        @Html.DropDownList("NCC", null, new { @class = " form-control" })
+
+    </div>
+    <div class="form-group">
+        <label>Giá</label>
+        <input type="text" value="@Model.Gia" class="form-control" id="Gia" name="Gia" />
+    </div>
+    <div class="form-group">
+        <label for="Photo">Hình ảnh</label>
+        <input type="file" id="uploadhinh" name="uploadhinh" accept="image/*" />
+    </div>
+
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" value="Lưu">Lưu</button>
+        <span class="text-danger">@ViewBag.StatusMessage</span>
+
+    </div>
+
+</form>

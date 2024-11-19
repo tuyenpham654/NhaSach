@@ -1,0 +1,192 @@
+﻿
+@{
+    ViewBag.Title = "SPST";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var slides = (List<Model.EF.BANNER>)ViewBag.Slide;
+    var lstspnew = (List<Model.EF.SANPHAM>)ViewBag.Lstnew;
+    var lstsphot = (List<Model.EF.SANPHAM>)ViewBag.Lsthot;
+    var lstspall = (List<Model.EF.SANPHAM>)ViewBag.Lstall;
+}
+
+
+
+<div class="row">
+    <div class="main-slider-area">
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+            <div class="slider-area">
+                <div id="wrapper">
+                    <div class="slider-wrapper">
+                        <div id="mainSlider" class="nivoSlider">
+                            <!--hình chạy-->
+                            @foreach (var item in slides)
+                            {
+                                <img src="~/Upload/Banner/@item.HinhBN" alt="main slider" title="#@item.ID" />
+                            }
+                        </div>
+                        @foreach (var item in slides)
+                        {
+                            <div id="@item.ID" class="nivo-html-caption slider-caption">
+                                <!--nội dung trên hình chạy đi theo biến title-->
+                                <div class="slider-progress"></div>
+                                <div class="slider-cap-text slider-text1">
+                                    <div class="d-table-cell">
+                                        <h2 class="animated bounceInDown"></h2>
+                                        <p class="animated bounceInUp">@item.Noidung</p>
+                                        <a class="wow zoomInDown" data-wow-duration="1s" data-wow-delay="1s" href="#">Read More <i class="fa fa-caret-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <!--Hình bên cạnh hình chạy-->
+            <div class="slider-right zoom-img m-top">
+                <a href="#"><img class="img-responsive" style="height:225px" src="~/Upload/HinhTam/cd.jpg" alt="sidebar left" /></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row tow-column-product">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+        <div class="new-product-area">
+            <div class="left-title-area">
+                <h2 class="left-title">Sản Phẩm Bán Chạy</h2>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="new-pro-carousel">
+                            @foreach (var item in lstsphot)
+                            {
+                                <div class="item">
+                                    <div class="new-product">
+
+                                        <div class="single-product-item">
+                                            <div class="product-image">
+                                                <a href="#"><img style="height:255px;width:255px " src="~/Upload/SanPham/@item.HinhSP" alt="product-image" /></a>
+                                                <a href="#" class="new-mark-box">sale!</a>
+                                                <div class="overlay-content">
+                                                    <ul>
+                                                        <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a></li>
+                                                        <li><a href="/Cart/AddItem?productId=@item.MaSP&quantity=1" title="Thêm vào giỏ hàng"><i class="fa fa-shopping-cart"></i></a></li>
+                                                        <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a></li>
+                                                        <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="customar-comments-box">
+                                                    <div class="rating-box">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-half-empty"></i>
+                                                        <i class="fa fa-star-half-empty"></i>
+                                                    </div>
+                                                    <div class="review-box">
+                                                        <span>1 Review (s)</span>
+                                                    </div>
+                                                </div>
+                                                <a href="single-product.html">@item.TenSP</a>
+                                                <div class="price-box">
+                                                    <span class="price">@item.Gia$</span>
+                                                    <span class="old-price">@item.Gia $</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="Sale-Products">
+            <div class="left-title-area">
+                <h2 class="left-title">Sản Phẩm Mới</h2>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="sale-carousel">
+                            @foreach (var item in lstspnew)
+                            {
+                                <div class="item">
+                                    <div class="new-product">
+                                        <div class="single-product-item">
+                                            <div class="product-image">
+                                                <a href="#"><img style="height:255px;width:255px " src="~/Upload/SanPham/@item.HinhSP" alt="product-image" /></a>
+                                                <a href="#" class="new-mark-box">new</a>
+                                                <div class="overlay-content">
+                                                    <ul>
+                                                        <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a></li>
+                                                        <li><a href="/Cart/AddItem?productId=@item.MaSP&quantity=1" title="Thêm vào giỏ hàng"><i class="fa fa-shopping-cart"></i></a></li>
+                                                        <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a></li>
+                                                        <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="customar-comments-box">
+                                                    <div class="rating-box">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-half-empty"></i>
+                                                        <i class="fa fa-star-half-empty"></i>
+                                                    </div>
+                                                    <div class="review-box">
+                                                        <span>1 Review (s)</span>
+                                                    </div>
+                                                </div>
+                                                <a href="single-product.html">@item.TenSP</a>
+                                                <div class="price-box">
+                                                    <span class="price">$@item.Gia</span>
+                                                    <span class="old-price">$@item.Gia</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="margin-top:20px;margin-bottom:20px"><h1 style="text-align:center">Sách Truyện</h1></div>
+<div class="row">
+    <div class="image-add-area">
+        @foreach (var item in lstspall)
+        {
+            if (item.TheLoai == 102)
+            {
+
+                <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                    <!-- hình ảnh cuối gần footer -->
+
+                    <div class="onehalf-add-shope zoom-img">
+                        <a><img style="height:255px;width:255px " src="~/Upload/SanPham/@item.HinhSP" alt="shope-add" /></a>
+                        <a>@item.TenSP</a>
+                    </div>
+
+                </div>
+
+            }
+
+        }
+    </div>
+</div>
+

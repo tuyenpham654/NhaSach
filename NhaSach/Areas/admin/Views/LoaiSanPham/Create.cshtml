@@ -1,0 +1,38 @@
+﻿@model NhaSach.Models.LOAISANPHAM
+@{
+    ViewBag.Title = "Loại Sản Phẩm";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<form action="~/admin/LoaiSanPham/Create" method="post">
+    <div class="form-group">
+        <label for="MaLoai">Mã Thể Loại</label>
+        <input type="text" class="form-control" id="MaLoai" name="id" disabled />
+    </div>
+    <div class="form-group">
+        <label for="TenLoai">Tên Thể Loại</label>
+        <input type="text" class="form-control" id="TenLoai" name="TenLoai" />
+
+    </div>
+    <div class="form-group">
+        <label for="GhiChu">Ghi Chú</label>
+        <input type="text" class="form-control" id="GhiChu" name="GhiChu" />
+
+    </div>
+   
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" value="Lưu">Lưu</button>
+        <span class="text-danger">@ViewBag.StatusMessage</span>
+
+    </div>
+
+    <div>
+
+        @Html.ActionLink("Quay về danh sách", "Index")
+    </div>
+
+
+</form>

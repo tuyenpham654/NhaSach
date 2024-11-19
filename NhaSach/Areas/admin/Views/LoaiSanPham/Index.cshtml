@@ -1,0 +1,41 @@
+﻿@model IEnumerable<NhaSach.Models.LOAISANPHAM>
+@{
+    ViewBag.Title = "Loại Sản Phẩm";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div>
+    <form action="~/admin/LoaiSanPham/Index" method="post">
+        <div>
+            <a class="btn btn-primary" href="~/admin/LoaiSanPham/Create">Thêm Mới</a>
+        </div>
+    </form>
+    <div>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <td>Mã</td>
+                <td>Tên Loại</td>
+                <td>Ghi Chú</td>
+                <td>Sửa</td>
+                <td>Xóa</td>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MaLoai</td>
+                        <td>@item.TenLoai</td>
+                        <td>@item.GhiChu</td>
+                        <td><a href="~/admin/LoaiSanPham/Edit/@item.MaLoai">Sửa</a></td>
+                        <td><a href="~/admin/LoaiSanPham/Delete/@item.MaLoai">Xóa</a></td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

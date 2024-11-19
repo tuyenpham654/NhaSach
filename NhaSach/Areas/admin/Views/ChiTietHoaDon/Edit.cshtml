@@ -1,0 +1,52 @@
+﻿@model NhaSach.Models.CHITIETHOADON
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Edit</h2>
+
+<form action="~/admin/ChiTietHoaDon/Edit" method="post">
+    <div class="form-group">
+
+        <input type="hidden" value="@Model.MaCTHD" class="form-control" id="MaCTHD" name="MaCTHD" />
+
+    </div>
+
+    <div class="form-group">
+        <label for="MaHD">Mã hóa Đơn</label>
+        @Html.DropDownList("MaHD", null, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        <label for="MaSP">Sản Phẩm</label>
+        @Html.DropDownList("MaSP", null, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        <label for="SoLuong">Số Lượng</label>
+        <input type="text" value="@Model.SoLuong" class="form-control" id="SoLuong" name="SoLuong" />
+
+    </div>
+    <div class="form-group">
+        <label for="DonGia">Đơn Giá</label>
+        <input type="text" value="@Model.DonGia" class="form-control" id="DonGia" name="DonGia" />
+
+    </div>
+    <div class="form-group">
+        <label for="ThanhTien">Thành Tiền</label>
+        <input type="text" value="@Model.ThanhTien" class="form-control" id="ThanhTien" name="ThanhTien" />
+
+    </div>
+
+
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" value="Lưu">Lưu</button>
+        <span class="text-danger">@ViewBag.StatusMessage</span>
+
+    </div>
+
+</form>

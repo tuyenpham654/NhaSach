@@ -1,0 +1,45 @@
+﻿@model NhaSach.Models.NHANVIEN
+@{
+    ViewBag.Title = "Nhân Viên";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<form action="~/admin/NhanVien/Edit" method="post">
+    <div class="form-group">
+
+        <input type="hidden" value="@Model.MaNV" class="form-control" id="MaNV" name="MaNV" />
+
+    </div>
+
+    <div class="form-group">
+        <label for="TenNV">Tên Nhân Viên</label>
+        <input type="text" value="@Model.TenNV" class="form-control" id="TenNV" name="TenNV" />
+
+    </div>
+    <div class="form-group">
+        <label for="GioiTinh">Giới Tính</label>
+        <input type="text" value="@Model.GioiTinh" class="form-control" id="GioiTinh" name="GioiTinh" />
+
+    </div>
+    <div class="form-group">
+        <label for="SDT">Liên Hệ</label>
+        <input type="text" value="@Model.SDT" class="form-control" id="SDT" name="SDT" />
+
+    </div>
+    <div class="form-group">
+        <label for="DiaChi">Địa Chỉ</label>
+        <input type="text" value="@Model.DiaChi" class="form-control" id="DiaChi" name="DiaChi" />
+
+    </div>
+
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" value="Lưu">Lưu</button>
+        <span class="text-danger">@ViewBag.StatusMessage</span>
+
+    </div>
+
+</form>

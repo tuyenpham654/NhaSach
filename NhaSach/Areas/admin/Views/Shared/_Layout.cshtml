@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="~/Asset/admin/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/Asset/admin/css/style.css">
+  
+</head>
+<body>
+    <div class="container-scroller">
+        <nav class="navbar col-lg-12 col-xml-6 col-12 p-0 fixed-top">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo" href="index.html">
+                    @ViewBag.Title
+                </a>
+                <a class="navbar-brand brand-logo-mini" href="index.html">
+                    @ViewBag.Title
+                </a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-stretch">
+                <!--Nút ẩn hiện menu-->
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+            </div>
+        </nav>
+        <!-- Menu -->
+       
+        <div class="container-fluid page-body-wrapper">
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    @if (Session["SESSION_GROUP"] != null)
+                    {
+                        List<string> priviLevels = (List<string>)Session["SESSION_GROUP"];
+                        if (priviLevels[0].CompareTo("admin") == 0)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/admin/SanPham/Index">
+                                    <span class="menu-title">Sản Phẩm</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/admin/LoaiSanPham/Index">
+                                    <span class="menu-title">Loại Sản Phẩm</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/admin/TinTuc/Index">
+                                    <span class="menu-title">Tin Tức</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/admin/Banner/Index">
+                                    <span class="menu-title">Banner</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/admin/NhaCungCap/Index">
+                                    <span class="menu-title">Nhà Cung Cấp</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/admin/NhanVien/Index">
+                                    <span class="menu-title">Nhân Viên</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/admin/User/Index">
+                                    <span class="menu-title">Tài Khoản</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/admin/UserGroup/Index">
+                                    <span class="menu-title">Nhóm Tài Khoản</span>
+                                </a>
+                            </li>
+                        }
+                        if (priviLevels[0].CompareTo("nhanvien") == 0)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/admin/SanPham/Index">
+                                    <span class="menu-title">Sản Phẩm</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/admin/LoaiSanPham/Index">
+                                    <span class="menu-title">Loại Sản Phẩm</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/admin/TinTuc/Index">
+                                    <span class="menu-title">Tin Tức</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/admin/Banner/Index">
+                                    <span class="menu-title">Banner</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/admin/KhachHang/Index">
+                                    <span class="menu-title">Khách Hàng</span>
+                                </a>
+                            </li>
+                        }
+                        if (priviLevels[0].CompareTo("Khách Hàng") == 0)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Home/Index">
+                                    <span class="menu-title">Trở về trang mua hàng</span>
+                                </a>
+                            </li>
+                        }
+                    }
+                </ul>
+            </nav>
+            
+                <div class="content-wrapper">
+                    
+                        <div class="col-md-12">
+                            
+                                <div>
+                                    @RenderBody()
+                                </div>
+                            
+                        </div>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+    <script src="~/Asset/admin/vendors/js/vendor.bundle.base.js"></script>
+    <script src="~/Asset/admin/js/off-canvas.js"></script>
+</body>
+</html>

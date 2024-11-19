@@ -1,0 +1,45 @@
+﻿@model IEnumerable<NhaSach.Models.NHANVIEN>
+@{
+    ViewBag.Title = "Nhân Viên";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+ 
+
+<div>
+    <form action="~/admin/NhanVien/Index" method="post">
+        <div>
+            <a class="btn btn-primary" href="~/admin/NhanVien/Create">Thêm Mới</a>
+        </div>
+    </form>
+    <div>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <td>Mã Nhân Viên</td>
+                <td>Tên Nhân Viên</td>
+                <td>Giới Tính</td>
+                <td>Liên Hệ</td>
+                <td>Dịa Chỉ</td>
+                <td>Sửa</td>
+                <td>Xóa</td>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                     {
+                    <tr>
+                        <td>@item.MaNV</td>
+                        <td>@item.TenNV</td>
+                        <td>@item.GioiTinh</td>
+                        <td>@item.SDT</td>
+                        <td>@item.DiaChi</td>
+                        <td><a href="~/admin/NhanVien/Edit/@item.MaNV">Sửa</a></td>
+                        <td><a href="~/admin/NhanVien/Delete/@item.MaNV">Xóa</a></td>
+                    </tr>
+                     }
+
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

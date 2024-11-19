@@ -1,0 +1,47 @@
+﻿@model IEnumerable<NhaSach.Models.CHITIETHOADON>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div>
+    <form action="~/admin/ChiTietHoaDon/Index" method="post">
+        <div>
+            <a class="btn btn-primary" href="~/admin/ChiTietHoaDon/Create">Thêm Mới</a>
+        </div>
+    </form>
+    <div>
+        <table class="table table table-hover">
+            <thead>
+                <td>Mã CT Hóa Đơn</td>
+                <td>Mã Hóa Đơn</td>
+                <td>Tên Sản Phẩm</td>
+                <td>Số Lượng</td>
+                <td>Dơn Giá</td>
+                <td>Thành Tiền</td>
+                <td>Sửa</td>
+                <td>Xóa</td>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.MaCTHD</td>
+                    <td>@item.MaHD</td>
+                    <td>@item.SANPHAM.TenSP</td>
+                    <td>@item.SoLuong</td>
+                    <td>@item.DonGia</td>
+                    <td>@item.ThanhTien</td>
+                    <td><a href="~/admin/ChiTietHoaDon/Edit/@item.MaSP">Sửa</a></td>
+                    <td><a href="~/admin/ChiTietHoaDon/Delete/@item.MaSP">Xóa</a></td>
+                </tr>
+                }
+
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

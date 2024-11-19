@@ -1,0 +1,44 @@
+﻿@model IEnumerable<NhaSach.Models.USERGROUP> 
+@{
+    ViewBag.Title = "Nhóm Account";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+ 
+
+<div>
+    <form action="~/admin/UserGroup/Index" method="post">
+        <div>
+            <a class="btn btn-primary" href="~/admin/UserGroup/Create">Thêm Mới</a>
+        </div>
+    </form>
+    <div>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <td>Mã</td>
+                    <td>Tên</td>
+                    
+                    <td>Sửa</td>
+                    <td>Xóa</td>
+                </tr>
+                
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                 {
+                    <tr>
+                        <td>@item.ID</td>
+                        <td>@item.Name</td>
+                        
+                        <td><a href="~/admin/UserGroup/Edit/@item.ID">Sửa</a></td>
+                        <td><a href="~/admin/UserGroup/Delete/@item.ID">Xóa</a></td>
+                    </tr>
+                 }
+
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

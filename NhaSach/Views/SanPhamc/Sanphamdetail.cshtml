@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Sanphamdetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var slides = (List<Model.EF.BANNER>)ViewBag.Slide;
+    var lstspnew = (List<Model.EF.SANPHAM>)ViewBag.Lstnew;
+    var lstsphot = (List<Model.EF.SANPHAM>)ViewBag.Lsthot;
+    var lstspall = (List<Model.EF.SANPHAM>)ViewBag.Lstall;
+}
+
+<h2>Sanphamdetail</h2>
+<div class="row">
+    <div class="main-slider-area">
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+            <div class="slider-area">
+                <div id="wrapper">
+                    <div class="slider-wrapper">
+                        <div id="mainSlider" class="nivoSlider">
+                            <!--hình chạy-->
+                            @foreach (var item in slides)
+                            {
+                                <img src="~/Upload/Banner/@item.HinhBN" alt="main slider" title="#@item.ID" />
+                            }
+                        </div>
+                        @foreach (var item in slides)
+                        {
+                            <div id="@item.ID" class="nivo-html-caption slider-caption">
+                                <!--nội dung trên hình chạy đi theo biến title-->
+                                <div class="slider-progress"></div>
+                                <div class="slider-cap-text slider-text1">
+                                    <div class="d-table-cell">
+                                        <h2 class="animated bounceInDown"></h2>
+                                        <p class="animated bounceInUp">@item.Noidung</p>
+                                        <a class="wow zoomInDown" data-wow-duration="1s" data-wow-delay="1s" href="#">Read More <i class="fa fa-caret-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <!--Hình bên cạnh hình chạy-->
+            <div class="slider-right zoom-img m-top">
+                <a href="#"><img class="img-responsive" style="height:225px" src="~/Upload/HinhTam/cd.jpg" alt="sidebar left" /></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="margin-top:20px;margin-bottom:20px"><h1 style="text-align:center">Tất Cả Sản Phẩm</h1></div>
+<div class="row">
+    <div class="image-add-area">
+        @foreach (var item in lstspall)
+        {
+           
+            <div class="sp col-ms-12 col-md-4 col-12">
+                <img src="~/Upload/SanPham/@item.HinhSP" width="300px">
+            </div>
+            <div class="sp col-ms-12 col-md-7 col-12 ">
+
+
+                <p><h3>@item.TenSP</h3></p>
+                <p><br></p>
+                <p>
+
+                    <div class="row">
+                        <div class="col-ms-12 col-md-7 col-12">
+                            <p>Nhà cung cấp:@item.NHACUNGCAP.TenNCC</p>
+                            <p>Nhà xuất bản:</p>
+                        </div>
+                    </div>
+                </p>
+                <p class="gia">
+                    @item.Gia đ
+                </p>
+                <br>
+                <p>
+                    <img src="" width="50px">
+                </p>
+            </div>
+}
+    </div>
+</div>
+
+

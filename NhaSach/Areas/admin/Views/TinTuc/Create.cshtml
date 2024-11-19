@@ -1,0 +1,47 @@
+﻿@model NhaSach.Models.TINTUC
+@{
+    ViewBag.Title = "Tin Tức";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<form action="~/admin/TinTuc/Create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="MaTinTuc">Mã Sản Phẩm</label>
+        <input type="text" class="form-control" id="MaTinTuc" name="MaTinTuc" readonly />
+    </div>
+
+    <div class="form-group">
+        <label for="TenTinTuc">Tên Tin Tức</label>
+        <input type="text" class="form-control" id="TenTinTuc" name="TenTinTuc" />
+
+    </div>
+    <div class="form-group">
+        <label for="LoaiTinTuc">Loại Tin Tức</label>
+        <input type="text" class="form-control" id="LoaiTinTuc" name="LoaiTinTuc" />
+
+    </div>
+    <div class="form-group">
+        <label for="NoiDung">Nội Dung</label>
+        <input type="text" class="form-control" id="NoiDung" name="NoiDung" />
+
+    </div>
+    <div class="form-group">
+        <label >Hình ảnh</label>
+        <input type="file" id="uploadhinh" name="uploadhinh" accept="image/*" />
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" value="Lưu">Lưu</button>
+        <span class="text-danger">@ViewBag.StatusMessage</span>
+
+    </div>
+
+    <div>
+
+        @Html.ActionLink("Quay về danh sách", "Index")
+    </div>
+
+
+</form>

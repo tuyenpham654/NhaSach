@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d18eab82ad4e4dc29719a1fb7ee7ba43" Name="Diagram1">
+        <EntityTypeShape EntityType="NhaSachModel.BANNER" Width="1.5" PointX="10.75" PointY="1.625" />
+        <EntityTypeShape EntityType="NhaSachModel.CHITIETHOADON" Width="1.5" PointX="8.25" PointY="3.5" />
+        <EntityTypeShape EntityType="NhaSachModel.HOADON" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="NhaSachModel.KHACHHANG" Width="1.5" PointX="10.75" PointY="4.625" />
+        <EntityTypeShape EntityType="NhaSachModel.LOAISANPHAM" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="NhaSachModel.NHACUNGCAP" Width="1.5" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="NhaSachModel.NHANVIEN" Width="1.5" PointX="5.75" PointY="11.625" />
+        <EntityTypeShape EntityType="NhaSachModel.Order" Width="1.5" PointX="3" PointY="8.375" />
+        <EntityTypeShape EntityType="NhaSachModel.Orderdetail" Width="1.5" PointX="5.25" PointY="3.625" />
+        <EntityTypeShape EntityType="NhaSachModel.SANPHAM" Width="1.5" PointX="3" PointY="3" />
+        <EntityTypeShape EntityType="NhaSachModel.sysdiagram" Width="1.5" PointX="10.75" PointY="8.625" />
+        <EntityTypeShape EntityType="NhaSachModel.TINTUC" Width="1.5" PointX="7.75" PointY="11.625" />
+        <EntityTypeShape EntityType="NhaSachModel.USERGROUP" Width="1.5" PointX="5.75" PointY="8.25" />
+        <EntityTypeShape EntityType="NhaSachModel.USERSS" Width="1.5" PointX="8" PointY="7.875" />
+        <AssociationConnector Association="NhaSachModel.FK_CHITIETHOADON_HOADON" />
+        <AssociationConnector Association="NhaSachModel.FK_CHITIETHOADON_SANPHAM" />
+        <AssociationConnector Association="NhaSachModel.FK_SANPHAM_LOAISANPHAM" />
+        <AssociationConnector Association="NhaSachModel.FK_SANPHAM_NHACUNGCAP" />
+        <AssociationConnector Association="NhaSachModel.FK_Orderdetail_Order" />
+        <AssociationConnector Association="NhaSachModel.FK_Orderdetail_SANPHAM" />
+        <AssociationConnector Association="NhaSachModel.FK_USERSS_USERGROUP" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

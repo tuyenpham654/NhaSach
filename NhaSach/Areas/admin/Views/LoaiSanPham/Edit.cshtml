@@ -1,0 +1,37 @@
+﻿@model NhaSach.Models.LOAISANPHAM
+@{
+    ViewBag.Title = "Loại Sản Phẩm";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<form class="table" action="~/admin/LoaiSanPham/Edit" method="post">
+    <div class="form-group">
+
+        <input type="hidden" value="@Model.MaLoai" class="form-control" id="MaLoai" name="MaLoai" />
+
+    </div>
+
+    <div class="form-group">
+        <label for="TenLoai">Tên Thể Loại</label>
+        <input type="text" value="@Model.TenLoai" class="form-control" id="TenLoai" name="TenLoai" />
+
+    </div>
+    <div class="form-group">
+        <label for="GhiChu">Ghi Chú</label>
+        <input type="text" value="@Model.GhiChu" class="form-control" id="GhiChu" name="GhiChu" />
+
+    </div>
+    
+   
+
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" value="Lưu">Lưu</button>
+        <span class="text-danger">@ViewBag.StatusMessage</span>
+
+    </div>
+
+</form>

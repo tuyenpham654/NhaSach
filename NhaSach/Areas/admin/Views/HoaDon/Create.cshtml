@@ -1,0 +1,43 @@
+﻿@model NhaSach.Models.HOADON
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<form action="~/admin/HoaDon/Create" method="post">
+    <div class="form-group">
+        <label for="MaHD">Mã Hóa Đơn</label>
+        <input type="text" class="form-control" id="MaHD" name="id" disabled />
+    </div>
+    <div class="form-group">
+        <label for="NgayLap">Ngày Lập</label>
+        <input type="text" class="form-control" id="NgayLap" name="NgayLap" />
+
+    </div>
+    <div class="form-group">
+        <label for="TongGT">Tổng Giá Trị</label>
+        <input type="text" class="form-control" id="TongGT" name="TongGT" />
+
+    </div>
+    <div class="form-group">
+        <label for="MaKH">Khách Hàng</label>
+        <input type="text" class="form-control" id="MaKH" name="MaKH" />
+
+    </div>
+    
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" value="Lưu">Lưu</button>
+        <span class="text-danger">@ViewBag.StatusMessage</span>
+
+    </div>
+
+    <div>
+
+        @Html.ActionLink("Quay về danh sách", "Index")
+    </div>
+
+
+</form>

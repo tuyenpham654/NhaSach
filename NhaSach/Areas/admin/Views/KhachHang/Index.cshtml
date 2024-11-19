@@ -1,0 +1,50 @@
+﻿@model IEnumerable<NhaSach.Models.KHACHHANG>
+@{
+    ViewBag.Title = "Khách Hàng";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <form action="~/admin/KhachHang/Index" method="post">
+        <div>
+            <a class="btn btn-primary" href="~/admin/KhachHang/Create">Thêm Mới</a>
+        </div>
+    </form>
+    <div>
+        <table class="table table-bordered table-hover">
+            <thead>
+            <td>ID</td>
+            <td>Tên Khách Hàng</td>
+            <td>Số CMND</td>
+            <td>Giới Tính</td>
+            <td>Tên Tài Khoản</td>
+            <td>Ngày Sinh</td>
+            <td>Ngày Lập</td>
+            <td>Địa Chỉ</td>
+            <td>Sửa</td>
+            <td>Xóa</td>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.TenKH</td>
+                    <td>@item.CMND</td>
+                    <td>@item.GioiTinh</td>
+                    <td>@item.UserName</td>
+                    <td>@item.NgaySinh</td>
+                    <td>@item.NgayLap</td>
+                    <td>@item.DiaChi</td>
+                    <td><a href="~/admin/KhachHang/Edit/@item.ID">Sửa</a></td>
+                    <td><a href="~/admin/KhachHang/Delete/@item.ID">Xóa</a></td>
+                </tr>
+                }
+
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+

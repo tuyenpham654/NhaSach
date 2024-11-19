@@ -1,0 +1,53 @@
+﻿@model List<NhaSach.Models.CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/__Layout.cshtml";
+}
+
+
+    
+<h2>GIỎ HÀNG CỦA BẠN</h2>
+<div class="content">
+    <div class="section group">
+        @if (Model.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Mã SP</td>
+                        <td>Tên SP</td>
+                        <td>Ảnh SP</td>
+                        <td>Số lượng</td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.SANPHAM.MaSP</td>
+                            <td>@item.SANPHAM.TenSP</td>
+                            <td><img style="width:100px; height:150px" src="~/Upload/SanPham/@item.SANPHAM.HinhSP" /></td>
+                            <td><input type="number" class="txtQuantity" data-id="@item.SANPHAM.MaSP" value="@item.Quantity" /></td>
+                            <td>@item.SANPHAM.Gia</td>
+                            <td>@(Convert.ToDecimal(item.SANPHAM.Gia * item.Quantity))</td>
+                            <td><a href="#" data-id="@item.SANPHAM.MaSP" class="btn-delete">Xoá</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <button id="btnContinue" class="btn"><a href="~/Home/Index">Tiếp tục mua hàng</a></button>
+            <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
+            <button id="btnDeleteAll" class="btn">Xoá giỏ hàng</button>
+            <button id="btnPayment" class="btn">Thanh toán</button>
+        }
+        else
+        {
+            <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+        }
+    </div>
+</div>
+
+

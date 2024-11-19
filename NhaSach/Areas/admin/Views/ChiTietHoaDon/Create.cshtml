@@ -1,0 +1,52 @@
+﻿@model NhaSach.Models.CHITIETHOADON
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<form action="~/admin/ChiTietHoaDon/Create" method="post">
+    <div class="form-group">
+        <label for="MaCTHD">Mã Chi Tiết Hóa Đơn</label>
+        <input type="text" class="form-control" id="MaCTHD" name="id" disabled />
+    </div>
+    <div class="form-group">
+        <label for="MaHD">Mã Hóa Đơn</label>
+        @Html.DropDownList("MaHD", null, new { @class = " form-control" })
+
+    </div>
+    <div class="form-group">
+        <label for="MaSP">Năm Sản xuất</label>
+        @Html.DropDownList("MaSP", null, new { @class = " form-control" })
+
+    </div>
+    <div class="form-group">
+        <label for="SoLuong">Số Lượng</label>
+        <input type="text" class="form-control" id="SoLuong" name="SoLuong" />
+
+    </div>
+    <div class="form-group">
+        <label for="DonGia">Đơn Giá</label>
+        <input type="text" class="form-control" id="DonGia" name="DonGia" />
+
+    </div>
+    <div class="form-group">
+        <label for="ThanhTien">Thành Tiền</label>
+        <input type="text" class="form-control" id="ThanhTien" name="ThanhTien" />
+
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" value="Lưu">Lưu</button>
+        <span class="text-danger">@ViewBag.StatusMessage</span>
+
+    </div>
+
+    <div>
+
+        @Html.ActionLink("Quay về danh sách", "Index")
+    </div>
+
+
+</form>
